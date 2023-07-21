@@ -71,9 +71,11 @@ const displayController = (() => {
     cell.classList.add("cell");
     cell.textContent = mark;
 
-    cell.addEventListener("click", () => {
-      gameController.takeTurn(x, y);
-    });
+    if (!mark) {
+      cell.addEventListener("click", () => {
+        gameController.takeTurn(x, y);
+      });
+    }
 
     return cell;
   };
